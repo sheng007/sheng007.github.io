@@ -1,8 +1,8 @@
 #EXTM3U
 
 #EXTINF:-1, tvg-name="" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/wxxw.png", 无线新闻台
-http://prd-vcache.edge-global.akamai.tvb.com/__cl/slocalr2625/__c/ott_C_h264/__op/default/__f/index.m3u8?hdnea=ip=0.0.0.0~st=1618950308~exp=1619036708~acl=/__cl/slocalr2625/__c/ott_C_h264/__op/default/__f/*~hmac=949be6da8241d22af2b5ba0c276e451783b2cca0588af487158f6f013156f1c5&p=3324
+http://prd-vcache.edge-global.akamai.tvb.com/__cl/slocalr2526/__c/ott_C_h264/__op/default/__f/index.m3u8?hdnea=ip=0.0.0.0~st=1619036719~exp=1619123119~acl=/__cl/slocalr2526/__c/ott_C_h264/__op/default/__f/*~hmac=a22a8e8b39f874f9ef404b7317eb019d517baedb3945d3561c6d5b90544cb853&p=3324
 
 #EXTINF:-1, tvg-name="" tvg-logo="http://epg.51zmt.top:8000/tb1/gt/tvbfinanceinformationchannel.png", 无线财经资讯台
-http://prd-vcache.edge-global.akamai.tvb.com/__cl/slocalr2526/__c/ott_A_h264/__op/default/__f/index.m3u8?hdnea=ip=0.0.0.0~st=1618950312~exp=1619036712~acl=/__cl/slocalr2526/__c/ott_A_h264/__op/default/__f/*~hmac=487a578318360ed3f20b68db5e21ac3b05cb8f5574b1151b8c96a47a8ff33251&p=3324
+http://prd-vcache.edge-global.akamai.tvb.com/__cl/slocalr2526/__c/ott_A_h264/__op/default/__f/index.m3u8?hdnea=ip=0.0.0.0~st=1619036722~exp=1619123122~acl=/__cl/slocalr2526/__c/ott_A_h264/__op/default/__f/*~hmac=64d94bbf4192d48f7bf1076c8f0f9dc6ec2abd7feb9f0856d7c83ae462b8dce2&p=3324
 

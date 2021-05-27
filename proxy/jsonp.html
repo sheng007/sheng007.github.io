@@ -1,3 +1,14 @@
 <script type="text/javascript">
-window.location.href="https://ihtcboy.com";
+$.ajax({
+	 	   url: "https://news.tvb.com/ajax_call/getVideo.php?token=http%3A%2F%2Ftoken.tvb.com%2Fstream%2Flive%2Fhls%2Fmobilehd_news_windows1.smil%3Fapp%3Dnews%26feed%26client_ip%3D0.0.0.0",
+	 	   type: "GET",
+	  	   dataType: "jsonp",
+	  	   success: function (data) {
+			var string = JSON.stringify(data);
+			alert("data : " + data.result);
+			alert("data : " + string);
+			window.location.href = string;
+		   },
+		});
+
 </script>

@@ -1,194 +1,36 @@
-<html>
-<head>
-<meta http-equiv="content-type" content="text/html;charset=UTF-8">
-<style>
-html, body {width: 100%;height: 100%;margin: 0 0;}
-</style>
-<script type="text/javascript" src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
-</head>
-<body>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script>
-    $.ajaxPrefilter(function (options) {
-        if (options.crossDomain && jQuery.support.cors) {
-            var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
-            options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
-        }
-    });
-    url='http://m.91kds.cn/auth3.php';
-    $.getJSON(url,
-        function (data) {
-            var k=data.livekey;
-            var vid=location.href.split('html?id=')[1];
-            if(vid=='hjjc'){uid='hjjc';}//CCTV怀旧剧场
-            if(vid=='dyjc'){uid='dyjc';}//CCTV第一剧场
-            if(vid=='fyjc'){uid='fyjc';}//CCTV风云剧场
-            if(vid=='fyyy'){uid='fyyy';}//CCTV风云音乐
-            if(vid=='fyzq'){uid='fyzq';}//CCTV风云足球
-            if(vid=='bqkj'){uid='gfjs';}//CCTV兵器科技
-            if(vid=='sjdl'){uid='sjdl';}//CCTV世界地理
-            if(vid=='nxss'){uid='nxss';}//CCTV女性时尚
-            if(vid=='ystq'){uid='ystq';}//CCTV央视台球
-            if(vid=='gefwq'){uid='gefwq';}//CCTV高尔夫网球
-            if(vid=='whjp'){uid='ysjp';}//CCTV央视文化精品
-            if(vid=='wsjk'){uid='wsjk';}//CCTV卫生健康
-            if(vid=='lgs'){uid='lgs';}//中央新影-老故事
-            if(vid=='zxs'){uid='zxs';}//中央新影-中学生
-            if(vid=='fxzl'){uid='fxzl';}//中央新影-发现之旅
-            if(vid=='4kcgq'){uid='cctv4k';}//CCTV-4K超高清
-            if(vid=='shpd'){uid='shpd';}//书画频道
-            if(vid=='zgtq'){uid='zgqx';}//中国天气
-            if(vid=='cetv1'){uid='cetv1hd';}//CETV1HD
-            if(vid=='zqjy'){uid='zqjy';}//CETV早期教育
-            if(vid=='fssh'){uid='cbnfssh';}//CBN风尚生活
-            if(vid=='mryy'){uid='cbnmryy';}//CBN每日影院
-            if(vid=='xfjc'){uid='cbnxfjc';}//CBN幸福剧场
-            if(vid=='xfyl'){uid='cbnxfyl';}//CBN幸福娱乐
-            if(vid=='hqgw'){uid='hqgw';}//环球购物
-            if(vid=='hqqg'){uid='hqqg';}//环球奇观
-            if(vid=='yxsj'){uid='yxsj';}//音像世界
-            if(vid=='chcgq'){uid='chchd';}//CHC高清电影
-            if(vid=='chcdz'){uid='chcdz';}//CHC动作电影
-            if(vid=='chcjt'){uid='chcjt';}//CHC家庭影院
-            if(vid=='gzws'){uid='gzwshd';}//贵州卫视HD
-            if(vid=='jlws'){uid='jlwshd';}//吉林卫视HD
-            if(vid=='jjgw'){uid='ahgw';}//安徽家家购物
-            if(vid=='bjjs'){uid='btvjshd';}//北京冬奥纪实HD
-            if(vid=='cqds'){uid='cqds';}//重庆都市
-            if(vid=='cqys'){uid='cqys';}//重庆影视
-            if(vid=='cqwy'){uid='cqyl';}//重庆文体娱乐
-            if(vid=='cqqm'){uid='cqqm';}//重庆汽摩
-            if(vid=='gzgg'){uid='gztv2';}//贵州公共
-            if(vid=='gzys'){uid='gztv3';}//贵州影视文艺
-            if(vid=='gzsh'){uid='gztv4';}//贵州大众生活
-            if(vid=='gzfz'){uid='gztv5';}//贵州法制
-            if(vid=='gzkj'){uid='gztv6';}//贵州科教健康
-            if(vid=='gzjj'){uid='gztv7';}//贵州经济
-            if(vid=='gzyd'){uid='gztv8';}//贵州移动电视
-            if(vid=='sypd'){uid='gzsypd';}//摄影频道
-            if(vid=='tywq'){uid='gztywq';}//天元围棋
-            if(vid=='zgjtgz'){uid='gzzgjt';}//中国交通-贵州
-            if(vid=='jcys'){uid='gzjcys';}//贵州精彩影视
-            if(vid=='dcyds'){uid='gzdcyds';}//贵州多彩云导视
-            if(vid=='jpdjc'){uid='gzjpdjc';}//贵州精品大剧场
-            if(vid=='gy1'){uid='gzgytv1';}//贵阳新闻综合
-            if(vid=='gy2'){uid='gzgytv2';}//贵阳经济生活
-            if(vid=='gy3'){uid='gzgytv3';}//贵阳法制
-            if(vid=='gy4'){uid='gzgytv4';}//贵阳都市
-            if(vid=='gy5'){uid='gzgytv5';}//贵阳旅游生活
-            if(vid=='qdnzh'){uid='gzqdn1';}//黔东南综合
-            if(vid=='trxwzh'){uid='gztrtv1';}//铜仁新闻综合
-            if(vid=='trgg'){uid='gztrtv2';}//铜仁公共
-            if(vid=='qnxwzh'){uid='gzqntv1';}//黔南新闻综合
-            if(vid=='asxw'){uid='gzastv1';}//安顺新闻
-            if(vid=='asgg'){uid='gzastv2';}//安顺公共
-            if(vid=='lpszh'){uid='gzlps1';}//六盘水综合
-            if(vid=='lpsgg'){uid='gzlps2';}//六盘水公共
-            if(vid=='zyxwzh'){uid='gzzytv1';}//遵义新闻综合
-            if(vid=='zyxwzhhd'){uid='gzzytv1a';}//遵义新闻综合HD
-            if(vid=='zyds'){uid='gzzytv2';}//遵义都市
-            if(vid=='zygg'){uid='gzzytv3';}//遵义公共
-            if(vid=='zyhjxs'){uid='gzzytv6';}//遵义好剧赏析
-            if(vid=='qxngg'){uid='gzqxn2';}//黔西南公共
-            if(vid=='bjtv1'){uid='gzbjtv1';}//毕节综合
-            if(vid=='bjtv2'){uid='gzbjtv2';}//毕节二套
-            if(vid=='mttv'){uid='gzmttv1';}//茅台电视台
-            if(vid=='skjt'){uid='gzsktv1';}//水矿集团电视台
-            if(vid=='byzh'){uid='gzgyby1';}//白云综合
-            if(vid=='byys'){uid='gzgyby2';}//白云影视
-            if(vid=='kyzh'){uid='gzgyky1';}//开阳综合
-            if(vid=='qztv1'){uid='gzgyqz1';}//清镇新闻综合
-            if(vid=='qztv2'){uid='gzgyqz2';}//清镇二套
-            if(vid=='wdzh'){uid='gzgywd1';}//乌当综合
-            if(vid=='xwzh'){uid='gzgyxw1';}//修文综合
-            if(vid=='djzh'){uid='gztrdj1';}//德江综合
-            if(vid=='jkzh'){uid='gztrjk1';}//江口综合
-            if(vid=='stxw'){uid='gztrst1';}//松桃新闻
-            if(vid=='wszh'){uid='gztrws1';}//万山综合
-            if(vid=='yhzh'){uid='gztryh1';}//沿河综合
-            if(vid=='alzh'){uid='gzqxnal1';}//安龙综合
-            if(vid=='chzh'){uid='gzqxnch1';}//册亨综合
-            if(vid=='qlzh'){uid='gzqxnql1';}//晴隆综合
-            if(vid=='wmzh'){uid='gzqxnwm1';}//望谟综合
-            if(vid=='xyzh'){uid='gzqxnxr1';}//兴义综合
-            if(vid=='zfzh'){uid='gzqxnzf1';}//贞丰综合
-            if(vid=='zfhd'){uid='gzqxnzf1a';}//贞丰综合HD
-            if(vid=='dszh'){uid='gzqnds1';}//独山综合
-            if(vid=='fqzh'){uid='gzqnfq1';}//福泉综合
-            if(vid=='ptzh'){uid='gzqnpt1';}//平塘综合
-            if(vid=='waxwzh'){uid='gzqnwa1';}//瓮安新闻综合
-            if(vid=='wayssh'){uid='gzqnwa2';}//瓮安影视生活
-            if(vid=='pzzh'){uid='gzlpspz1';}//盘州综合
-            if(vid=='cjzh'){uid='gzqdncj1';}//从江综合
-            if(vid=='hpzh'){uid='gzqdnhp1';}//黄平综合
-            if(vid=='jhzh'){uid='gzqdnjh1';}//剑河综合
-            if(vid=='jpzh'){uid='gzqdnjp1';}//锦屏综合
-            if(vid=='klzh'){uid='gzqdnkl1';}//凯里综合
-            if(vid=='lpzh'){uid='gzqdnlp1';}//黎平综合
-            if(vid=='lszh'){uid='gzqdnls1';}//雷山综合
-            if(vid=='mjzh'){uid='gzqdnmj1';}//麻江综合
-            if(vid=='rjzh'){uid='gzqdnrj1';}//榕江综合
-            if(vid=='sszh'){uid='gzqdnss1';}//三穗综合
-            if(vid=='tjzh'){uid='gzqdntj1';}//台江综合
-            if(vid=='tzzh'){uid='gzqdntz1';}//天柱综合
-            if(vid=='hzzh'){uid='gzbjhz1';}//赫章综合
-            if(vid=='jstv1'){uid='gzbjjs1';}//金沙综合
-            if(vid=='jstv2'){uid='gzbjjs2';}//金沙二套
-            if(vid=='jstv3'){uid='gzbjjs2';}//金沙三套
-            if(vid=='qxtv1'){uid='gzbjqx1';}//黔西综合
-            if(vid=='qxtv2'){uid='gzbjqx2';}//黔西二套
-            if(vid=='wntv1'){uid='gzbjwn1';}//威宁综合
-            if(vid=='wntv2'){uid='gzbjwn2';}//威宁二套
-            if(vid=='zjzh'){uid='gzbjzj1';}//织金综合
-            if(vid=='qxgtv'){uid='gzbjqxg1';}//七星关电视台
-            if(vid=='bldz'){uid='gzbjbldj1';}//百里杜鹃综合
-            if(vid=='wczh'){uid='gzzywc1';}//务川综合
-            if(vid=='zazh'){uid='gzzyza1';}//正安综合
-            if(vid=='pbzh'){uid='gzaspb1';}//平坝综合
-            if(vid=='pdzh'){uid='gzaspd1';}//普定综合
-            if(vid=='znzh'){uid='gzaszn1';}//镇宁综合
-            if(vid=='zyzh'){uid='gzaszy1';}//紫云综合
-            if(vid=='wssj'){uid='hawssj';}//武术世界
-            if(vid=='lypd'){uid='haly';}//梨园频道
-            if(vid=='wwbk'){uid='hawwbk';}//文物宝库
-            if(vid=='gxpd'){uid='gxpd';}//国学频道
-            if(vid=='cpd'){uid='hncpd';}//茶频道
-            if(vid=='xfpy'){uid='hnxfpy';}//先锋乒羽
-            if(vid=='klcd'){uid='hnklcd';}//快乐垂钓
-            if(vid=='jslz'){uid='jslz';}//江苏靓妆
-            if(vid=='yxjj'){uid='yxjj';}//游戏竞技
-            if(vid=='zqpd'){uid='nmgzq';}//足球频道
-            if(vid=='zhms'){uid='zhms';}//中华美食
-            if(vid=='shss'){uid='shsshd';}//生活时尚HD
-            if(vid=='jbty'){uid='jbtyhd';}//劲爆体育HD
-            if(vid=='dsjc'){uid='dsjchd';}//都市剧场HD
-            if(vid=='hxjc'){uid='hxjchd';}//欢笑剧场HD
-            if(vid=='mlzq'){uid='mlyyhd';}//魅力足球HD
-            if(vid=='dmxc'){uid='dmxchd';}//动漫秀场HD
-            if(vid=='jsqc'){uid='jsqchd';}//极速汽车HD
-            if(vid=='qjs'){uid='qjshd';}//全纪实HD
-            if(vid=='xfc'){uid='xfchd';}//幸福彩HD
-            if(vid=='dfcj'){uid='dfcj';}//东方财*浦东
-            if(vid=='qcxj'){uid='qcxj';}//七彩戏剧
-            if(vid=='fztd'){uid='fztd';}//法治天地
-            if(vid=='yxfy'){uid='yxfy';}//游戏风云
-            if(vid=='jspd'){uid='jspd';}//金色频道
-            if(vid=='lnf'){uid='sxlnf';}//老年福
-            if(vid=='cmzx'){uid='sxcmzx';}//彩民在线
-            if(vid=='scyswy'){uid='sctv5';}//四川影视文艺
-            if(vid=='doxhl'){uid='doxhl';}//DOX韩流
-            if(vid=='doxmj'){uid='doxmj';}//DOX美剧
-            if(vid=='doxxy'){uid='doxxy';}//DOX新艺
-            if(vid=='doxxz'){uid='doxxz';}//DOX新知
-            if(vid=='doxyh'){uid='doxyh';}//DOX映画
-            if(vid=='doxyj'){uid='doxyj';}//DOX怡家
-            if(vid=='docyl'){uid='doxyl';}//DOX英伦
-            if(vid=='doxyx'){uid='doxyx';}//DOX院线
-            if(vid=='qsjl'){uid='qsjl';}//求索纪录HD
-
-            location.href='http://mlive1.91kds.cn/b9/gzyx.m3u8?id='+uid+'&'+k+'';
-
+$.ajaxPrefilter(function (options) {
+  if (options.crossDomain && jQuery.support.cors) {
+     var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+     options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+     }
 });
-
 </script>
-</body>
-</html>
+<script>
+var vid = location.href.split('html?id=')[1];
+var ch = [];
+ch['jxtv1'] = '4a36e71f6c9c02bc89f95d6ed11be4ba';
+ch['jxtv2'] =  'b0c01a4525b98abb7075fd5a8ed55d5d';
+ch['jxtv3'] = '75cd29314d9a6fce7a5ee35cdf261610';
+ch['jxtv4'] = '7a672a9f95dd76d9e88dd5d8c8994a58';
+ch['jxtv5'] = '8326b0933a3590c01c6358b0e2bb2c2f';
+ch['jxtv6'] = 'c030f34e1208245b91a66be1b108c895';
+ch['jxtv7'] = '619030e1ee473d498db05ffcc74349ec';
+ch['jxtv8'] = '53fb7bb14da82297e9ae1b0c9cead4f4';
+ch['fsgw'] = '19d2c3d35aca9baaae28afcd28a2fdd1';
+ch['taoci'] = '582f8874dd1e121d2df5acb7916ceb8e';
+$.ajax({
+  url: 'https://app.jxntv.cn/Qiniu/liveauth/getPCAuth.php?t=1609229748&stream=tv_'+vid+'.m3u8',
+  type: "GET",
+  dataType: "json",
+  headers:{"Authorization":ch[vid]},
+  success: function (data) {
+    var string = JSON.stringify(data);
+    t = string.match(/"t":"(.*?)"/)[1];
+    token = string.match(/"token":"(.*?)"/)[1];
+    m3u8 = 'https://live.jxtvcn.com.cn/live-jxtv/tv_'+vid+'.m3u8?source=pc&t='+t+'&token='+ token;
+    location.href = m3u8;
+    }
+});
+</script>

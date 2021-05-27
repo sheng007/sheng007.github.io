@@ -12,8 +12,9 @@
 	 	   type: "GET",
 	  	  dataType: "jsonp",
 	  	  success: function (data) {
-			alert("123");
 			var string = JSON.stringify(data);
+			alert("data : " + data.result);
+			alert("data : " + string);
 			location.href = string;
 	   	 },
 		});

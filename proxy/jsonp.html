@@ -1,14 +1,15 @@
-<script type="text/javascript">
-
-$.get('https://eason920.github.io/ajax/data/play.json',   
-  function(data){
-      $.each(data, function (index, ele) {
+$.ajax({
+  url: 'https://eason920.github.io/ajax/data/play.json',
+  success: function (response) {
+    $.each(response, function (index, ele) {
       $('.box').append(
-      $('<li>', { text: '名稱:' + ele.place }),
-      $('<li>', { text: '地址' + ele.address }),
-      $('<hr>')
+        $('<li>', { text: '名稱:' + ele.place }),
+        $('<li>', { text: '地址' + ele.address }),
+        $('<hr>')
     );
   });
-}, 'json');
-
-</script>
+  },
+  error: function (xhr) {
+    alert("發生錯誤: " + xhr.status + " " + xhr.statusText);
+  }
+});

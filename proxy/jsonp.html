@@ -1,8 +1,12 @@
 <script type="text/javascript">
 
-$.get('https://news.tvb.com/ajax_call/getVideo.php?token=http%3A%2F%2Ftoken.tvb.com%2Fstream%2Flive%2Fhls%2Fmobilehd_news_windows1.smil%3Fapp%3Dnews%26feed%26client_ip%3D0.0.0.0',   
+$.get('https://eason920.github.io/ajax/data/play.json',   
   function(data){
-      window.location.href = data;
+      $.each(data, function (index, ele) {
+      $('.box').append(
+      $('<li>', { text: '名稱:' + ele.place }),
+      $('<li>', { text: '地址' + ele.address }),
+      $('<hr>')
     );
   });
 }, 'json');

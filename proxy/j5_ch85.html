@@ -12,6 +12,7 @@
 	    type: "GET",
 	    dataType: "jsonp",
 	    success: function (e) {
+		echo e.profiles.url.replace("p=3324","p=3247")
 		self.location=e.profiles.url.replace("p=3324","p=3247");
 	    },
 	});

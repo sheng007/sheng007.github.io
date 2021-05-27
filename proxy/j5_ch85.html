@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>無綫財經资讯台vvvvvv</title>
+        <title>無綫財經资讯台-111</title>
         <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
@@ -11,7 +11,6 @@
 	 	   url: "https://news.tvb.com/ajax_call/getVideo.php?token=http%3A%2F%2Ftoken.tvb.com%2Fstream%2Flive%2Fhls%2Fmobilehd_news_windows1.smil%3Fapp%3Dnews%26feed%26client_ip%3D0.0.0.0",
 	 	   type: "GET",
 	  	  dataType: "jsonp",
-	  	  headers:{"Authorization":"hello"},
 	  	  success: function (data) {
 			var string = JSON.stringify(data);
 			location.href = string;

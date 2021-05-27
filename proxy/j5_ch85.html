@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>無綫aaaa</title>
+        <title>aaaaqq</title>
         <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
@@ -10,9 +10,11 @@
 	$.ajax({
 	    url: "https://news.tvb.com/ajax_call/getVideo.php?token=http%3A%2F%2Ftoken.tvb.com%2Fstream%2Flive%2Fhls%2Fmobilehd_news_windows1.smil%3Fapp%3Dnews%26feed%26client_ip%3D0.0.0.0",
 	    type: "GET",
-	    dataType: "jsonp",
-	    success: function (e) {
-		aaaaaaaaaaaz
+	    dataType: 'html',
+	    success: function (data) {
+		var result=JSON.parse(data);
+		results=result.d.playAddress;
+		location.href=results
 	    },
 	});
         </script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>test-123ee</title>
+        <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+		$.ajax({
+	 	   url: "https://api.news.tvb.com/news/v2.2.1/live?profile=web",
+	 	   type: "GET",
+	  	   dataType: "jsonp",
+	  	   success: function (data) {
+			   var string = JSON.stringify(data);
+			   alert("data : " + data.result);
+			   alert("data : " + string);
+			   location.href = string;
+		   },
+		});
+        </script>
+    </body>
+</html>

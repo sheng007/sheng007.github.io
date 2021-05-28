@@ -6,15 +6,12 @@ var ch = [];
 url = 'http://m.fengshows.com/api/v3/live?live_type=tv&page=1&page_size=15';
 $.get(url,
   function(data){
-    alert("1");
     ch['fhzx'] = data[0].live_url_fhd.split('live/')[1].split('.')[0];
     ch['fhzw'] = data[1].live_url_fhd.split('live/')[1].split('.')[0];
     ch['fhhk'] = data[2].live_url_fhd.split('live/')[1].split('.')[0];
     var hexTime = (Date.parse(new Date())/1000 + 1800).toString(16);
     var hash = md5("obb9Lxyv5C/live/"+ch[vid]+hexTime);
     flv = 'http://hlive.fengshows.cn/live/'+ch[vid]+'.flv?txSecret='+hash+'&txTime='+hexTime+'';
-    alert("2");
-    alert(flv);
     location.href = flv;
     })
 </script>

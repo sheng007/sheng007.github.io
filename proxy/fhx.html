@@ -12,6 +12,7 @@ $.get(url,
     var hexTime = (Date.parse(new Date())/1000 + 1800).toString(16);
     var hash = md5("obb9Lxyv5C/live/"+ch[vid]+hexTime);
     flv = 'http://hlive.fengshows.cn/live/'+ch[vid]+'.flv?txSecret='+hash+'&txTime='+hexTime+'';
-    location.href = flv;
+    //location.href = flv;
+    window.location.href = flv;
     })
 </script>

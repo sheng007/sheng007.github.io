@@ -1,42 +1,17 @@
-<script src="https://cdnjs.loli.net/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="https://cdnjs.loli.net/ajax/libs/blueimp-md5/2.8.0/js/md5.min.js"></script>
-<script>
-    $.ajaxPrefilter(function (options) {
-        if (options.crossDomain && jQuery.support.cors) {
-            var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
-            options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
-         }
-    });
-</script>
-<script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script language="javascript">
 var vid = location.href.split('html?id=')[1];
 var ch = [];
-ch['jxws'] = 'tv_jxtv1.m3u8';
-ch['jxds'] = 'tv_jxtv2.m3u8';
-ch['jxjs'] = 'tv_jxtv3_hd.m3u8';
-ch['jxys'] = 'tv_jxtv4.m3u8';
-ch['jxgg'] = 'tv_jxtv5.m3u8';
-ch['jxse'] = 'tv_jxtv6.m3u8';
-ch['jxxw'] = 'tv_jxtv7.m3u8';
-ch['jxyd'] = 'tv_jxtv8.m3u8';
-ch['fsgw'] = 'tv_fsgw.m3u8';
-ch['jxtc'] = 'tv_taoci.m3u8';
-url = 'https://app.jxntv.cn/Qiniu/liveauth/getPCAuth.php';
-for (var e = "ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678oOLl9gqVvUuI1", n = e.length, a = "", i = 0; i < 8; i++);
-a += e.charAt(Math.floor(Math.random() * n));
-Authorization = md5(1609229748 + ch[vid] + a + "dfasg2df!f");
-etag = a;
-$.ajax({
-     type: 'post',
-     dataType:'json',
-     url:url,
-     data:'t=1609229748&stream='+ch[vid],
-     headers:{'Authorization':Authorization,'etag':etag},
-     success:function(data) {
-          t = data.t;
-          token = data.token;
-          m3u8 = 'https://live.jxtvcn.com.cn/live-jxtv/'+ch[vid]+'?source=pc&t='+t+'&token='+token;
-          location.href = m3u8;//此处可添加播放器，如：location.href = 'https://g.cbg.cn/ckplayer/X2/ckplayer.swf?live=true&autoplay=1&video='+encodeURIComponent(m3u8);
-          }
+url = 'http://m.fengshows.com/api/v3/live?live_type=tv&page=1&page_size=15';
+$.get(url,
+  function(data){
+    ch['fhzx'] = data[0].live_url_fhd.split('live/')[1].split('.')[0];
+    ch['fhzw'] = data[1].live_url_fhd.split('live/')[1].split('.')[0];
+    ch['fhhk'] = data[2].live_url_fhd.split('live/')[1].split('.')[0];
+    var hexTime = (Date.parse(new Date())/1000 + 1800).toString(16);
+    var hash = md5("obb9Lxyv5C/live/"+ch[vid]+hexTime);
+    flv = 'http://hlive.fengshows.cn/live/'+ch[vid]+'.flv?txSecret='+hash+'&txTime='+hexTime+'';
+    location.href = flv;
     })
 </script>

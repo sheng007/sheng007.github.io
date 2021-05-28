@@ -1,0 +1,36 @@
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+$.ajaxPrefilter(function (options) {
+  if (options.crossDomain && jQuery.support.cors) {
+     var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+     options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+     }
+});
+</script>
+<script>
+var vid = location.href.split('html?id=')[1];
+var ch = [];
+ch['jxtv1'] = '4a36e71f6c9c02bc89f95d6ed11be4ba';
+ch['jxtv2'] =  'b0c01a4525b98abb7075fd5a8ed55d5d';
+ch['jxtv3'] = '75cd29314d9a6fce7a5ee35cdf261610';
+ch['jxtv4'] = '7a672a9f95dd76d9e88dd5d8c8994a58';
+ch['jxtv5'] = '8326b0933a3590c01c6358b0e2bb2c2f';
+ch['jxtv6'] = 'c030f34e1208245b91a66be1b108c895';
+ch['jxtv7'] = '619030e1ee473d498db05ffcc74349ec';
+ch['jxtv8'] = '53fb7bb14da82297e9ae1b0c9cead4f4';
+ch['fsgw'] = '19d2c3d35aca9baaae28afcd28a2fdd1';
+ch['taoci'] = '582f8874dd1e121d2df5acb7916ceb8e';
+$.ajax({
+  url: 'https://app.jxntv.cn/Qiniu/liveauth/getPCAuth.php?t=1609229748&stream=tv_'+vid+'.m3u8',
+  type: "GET",
+  dataType: "json",
+  headers:{"Authorization":ch[vid]},
+  success: function (data) {
+    var string = JSON.stringify(data);
+    t = string.match(/"t":"(.*?)"/)[1];
+    token = string.match(/"token":"(.*?)"/)[1];
+    m3u8 = 'https://live.jxtvcn.com.cn/live-jxtv/tv_'+vid+'.m3u8?source=pc&t='+t+'&token='+ token;
+    location.href = m3u8;
+    }
+});
+</script>

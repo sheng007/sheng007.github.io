@@ -1,0 +1,41 @@
+<script src="https://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<script>
+var vid = location.href.split('html?id=')[1];
+var ch = [];
+ch['hbws']  = {urlid:10008,xlid:8};//湖北卫视
+ch['hbjs']  = {urlid:10008,xlid:7};//湖北经视
+ch['hbzh']  = {urlid:10008,xlid:6};//湖北综合
+ch['hbgg']  = {urlid:10008,xlid:5};//湖北公共新闻
+ch['hbys']  = {urlid:10008,xlid:4};//湖北影视
+ch['hbsh']  = {urlid:10008,xlid:3};//湖北生活
+ch['hbjy']  = {urlid:10008,xlid:2};//湖北教育
+ch['hbls']  = {urlid:10008,xlid:1};//湖北垄上
+ch['mjgw']  = {urlid:10008,xlid:0};//湖北美嘉购物
+ch['yczh']  = {urlid:10091,xlid:7};//宜昌综合
+ch['yclysh'] = {urlid:10091,xlid:6};//宜昌旅游生活
+ch['ycgg']  = {urlid:10091,xlid:5};//宜昌公共
+ch['szzh']  = {urlid:10145,xlid:0};//随州综合
+ch['hazh']  = {urlid:10063,xlid:0};//红安综合
+ch['dytv1']  = {urlid:10102,xlid:10};//大冶一套
+ch['dytv2']  = {urlid:10102,xlid:9};//大冶二套
+ch['xyzh']  = {urlid:10125,xlid:1};//襄阳综合
+ch['xysh']  = {urlid:10125,xlid:2};//襄阳经济生活
+ch['xygg']  = {urlid:10125,xlid:3};//襄阳公共
+ch['ltzh']  = {urlid:10013,xlid:1};//罗田综合
+ch['ltly']  = {urlid:10013,xlid:0};//罗田旅游
+ch['ezxwzh']  = {urlid:10098,xlid:4};//鄂州新闻综合
+ch['ezgg']  = {urlid:10098,xlid:5};//鄂州公共
+ch['qczh']  = {urlid:10126,xlid:1};//蕲春综合
+ch['qclyys']  = {urlid:10126,xlid:0};//蕲春旅游养生
+ch['xgxwzh']  = {urlid:10139,xlid:1};//孝感新闻综合
+ch['xggg']  = {urlid:10139,xlid:0};//孝感公共
+ch['cyzh']  = {urlid:10114,xlid:9};//长阳电视台
+ch['ylzh']  = {urlid:10174,xlid:1};//夷陵综合
+ch['gsxw']  = {urlid:10146,xlid:0};//广水新闻
+
+$.get('http://app.cjyun.org/video/player/streamlist?site_id='+ch[vid].urlid+'&live_type=1',
+    function(data) {
+       m3u8  = data.data[ch[vid].xlid].play_url;
+location.href = m3u8;
+    },'json')
+</script>
